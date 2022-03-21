@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Home from "../views/Home.vue"
+import Favorite from "../views/Favorite.vue"
+import Login from "../views/Login.vue"
+import Register from "../views/Register.vue"
 
 const routes = [
   {
@@ -17,19 +20,19 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/firebase",
-    name: "Firebase",
-    component: () => import("../views/Firebase.vue"),
+    path: "/favorite",
+    name: "Favorite",
+    component: Favorite,
   },
   {
     path: "/login",
     name: "Login",
-    component: () => import("../views/Login.vue"),
+    component: Login,
   },
   {
     path: "/register",
     name: "Register",
-    component: () => import("../views/Register.vue"),
+    component: Register,
   },
 ]
 

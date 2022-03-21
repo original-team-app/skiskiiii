@@ -2,6 +2,14 @@
   <div>
     <h2>アカウントの作成</h2>
     <form @submit.prevent="registerUser">
+      <!-- アカウント名 -->
+      <div class="form-group">
+        <input
+          type="displayName"
+          placeholder="アカウント名"
+          v-model="displayName"
+        />
+      </div>
       <!-- メールアドレス -->
       <div class="form-group">
         <input type="email" placeholder="メールアドレス" v-model="email" />

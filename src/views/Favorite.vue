@@ -29,6 +29,20 @@ export default {
         //失敗した場合はエラーメッセージを画面に出力
         .catch((e) => (this.error = e.message))
     },
+    addMemo() {
+      //refで名前を付けた要素を参照
+      var comment = this.inputText
+      //コメントの中身が何もないときは何もしないでreturn
+      if (!comment.length) {
+        return
+      }
+      //itemsにpush(コメント表示はv-forにお任せ)
+      else {
+        this.items.push(comment)
+        //コメントの中身を空に(****できてない)
+        this.inputText = ""
+      }
+    },
   },
   mounted() {
     //現在ログインしているユーザの情報を取得

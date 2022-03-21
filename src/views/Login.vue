@@ -32,8 +32,8 @@ export default {
   methods: {
     login() {
       signInWithEmailAndPassword(auth, this.email, this.password)
-        //ログイン成功した場合はFirebase画面へ
-        .then(() => this.$router.push("/firebase"))
+        //ログイン成功した場合はFavorite画面へ
+        .then(() => this.$router.push("/favorite"))
         //失敗した場合はエラーメッセージを画面に出力
         .catch((e) => (this.error = e.message))
     },
