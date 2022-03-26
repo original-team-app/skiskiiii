@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
-const auth = getAuth()
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "@/firebase"
 export default {
   data() {
     return {

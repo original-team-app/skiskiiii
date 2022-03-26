@@ -28,11 +28,10 @@
 
 <script>
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth"
-const auth = getAuth()
+import { auth } from "@/firebase"
 export default {
   data() {
     return {
@@ -55,7 +54,7 @@ export default {
     //認証リンクメールを送信する
     sendEmail() {
       const actionCodeSettings = {
-        url: "http://" + location.host + "/Login",
+        url: "http://" + location.host + "/Favorite",
       }
       auth.languageCode = "ja"
       sendEmailVerification(auth.currentUser, actionCodeSettings)

@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/Favorite">Favorite</router-link> |
+    <router-link to="/MyPage">MyPage</router-link> |
     <router-link to="/Login">ログイン</router-link> |
     <router-link to="/Register">登録</router-link>
   </div>

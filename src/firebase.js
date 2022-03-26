@@ -1,6 +1,7 @@
 // 必要な関数を import
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
+import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyAaGxVJawEjhbuqn4MZkg1pNo7R75VMo1c",
@@ -16,3 +17,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 // Firestoreを読み込み、db(databaseの略)として export
 export const db = getFirestore(app)
+export const auth = getAuth(app)
