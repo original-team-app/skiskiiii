@@ -16,6 +16,20 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/googlemap",
+    name: "Map",
+    component: () =>
+      import(/* webpackChunkName: "map" */ "../views/googlemap.vue"),
+  },
+  {
+    path: "/myfavorite-googlemap",
+    name: "Personal",
+    component: () =>
+      import(
+        /* webpackChunkName: "Personal" */ "../views/myfavorite-googlemap.vue"
+      ),
+  },
 ]
 
 const router = createRouter({
