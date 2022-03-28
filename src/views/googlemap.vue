@@ -6,6 +6,7 @@
     <h3>My Google Maps Demo</h3>
     <!--マップを表示するところ-->
     <div id="map" ref="map" />
+    <div></div>
   </body>
 </template>
 
@@ -109,9 +110,7 @@ export default {
     if (!window.mapCompleted) {
       window.mapCompleted = true
       const script = document.createElement("script")
-      script.src =
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBveIZLjpsuQKkrPXnEmipIxZ8iZJpUiVo&callback=initMap&v=weekly"
-      script.async = true
+      script.src = script.async = true
       document.head.appendChild(script)
     }
 
@@ -133,7 +132,7 @@ export default {
           /*const marker = */ new window.google.maps.Marker({
             position: this.latLngs[i],
             map: map,
-            /*title: this.latLng[i][2],*/
+            /*title: this.latLngs[i][2],*/
           })
 
           /*marker.addListener("click", (p) => {

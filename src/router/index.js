@@ -4,6 +4,7 @@ import Favorite from "../views/Favorite.vue"
 import MyPage from "../views/MyPage.vue"
 import Login from "../views/Login.vue"
 import Register from "../views/Register.vue"
+import Original from "../views/Original.vue"
 
 const routes = [
   {
@@ -61,6 +62,11 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/original",
+    name: "Original",
+    component: Original,
   },
 ]
 
