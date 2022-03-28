@@ -142,19 +142,19 @@
 //     console.error(err)
 //   })
 
-fetch(
-  "https://app.rakuten.co.jp/services/api/Travel/SimpleHotelSearch/20170426?format=json&datumType=1&latitude=35.6065914&longitude=139.7513225&applicationId=1064072543465509183"
-) //１ー－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－latitude,longitudeのデータを更新するには（変数に変換）
-  .then((response) => {
-    console.log(response)
-    return response.json()
-  })
-  .then((data) => {
-    console.log(data) //データの表示
-  })
-  .catch((err) => {
-    console.error(err)
-  })
+// fetch(
+//   "https://app.rakuten.co.jp/services/api/Travel/SimpleHotelSearch/20170426?format=json&datumType=1&latitude=35.6065914&longitude=139.7513225&applicationId=1064072543465509183"
+// ) //１ー－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－latitude,longitudeのデータを更新するには（変数に変換）
+//   .then((response) => {
+//     console.log(response)
+//     return response.json()
+//   })
+//   .then((data) => {
+//     console.log(data) //データの表示
+//   })
+//   .catch((err) => {
+//     console.error(err)
+//   })
 
 fetch(
   "https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates?checkin_date=2022-08-05&order_by=popularity&units=metric&longitude=135&adults_number=2&latitude=35&room_number=1&locale=en-gb&filter_by_currency=AED&checkout_date=2022-08-06&children_number=2&children_ages=5%2C0&page_number=0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&include_adjacency=true",
