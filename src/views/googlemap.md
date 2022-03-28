@@ -127,3 +127,30 @@ export default {
 '</div>' +
 '</div>' +
 '</div>'
+
+//通常 ver
+<div class="memo">
+<div id="content">
+<div class="add-memo-field">
+<input
+            class="add-memo-field__input"
+            type="text"
+            v-model="inputText"
+            v-on:keydown.enter="onKeyDown"
+          />
+<button class="add-memo-field__button" v-on:click="addMemo">
+追加
+</button>
+<div class="memo-container">
+<div class="memo" v-for="item in items" v-bind:key="item">
+<div class="memo-field">{{ item }}</div>
+<button class="memo__delete" v-on:click="deleteMemo">削除</button>
+<p>楽天トラベル URLlast visited:2022/2/2</p>
+<a
+                href="https://travel.rakuten.co.jp/?s_kwcid=paidsearch&gclid=CjwKCAjwrfCRBhAXEiwAnkmKmf-bOBlbyC5N_FuW07gZvGoiT2nJJ241bMgJR3n4zGEC_zdtPswhcRoCo0kQAvD_BwE&gclsrc=aw.ds"
+              />
+</div>
+</div>
+</div>
+</div>
+</div>

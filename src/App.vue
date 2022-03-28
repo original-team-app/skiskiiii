@@ -8,7 +8,8 @@
     <router-link to="/Favorite">Favorite</router-link> |
     <router-link to="/MyPage">MyPage</router-link> |
     <router-link to="/Login">ログイン</router-link> |
-    <router-link to="/Register">登録</router-link>
+    <router-link to="/Register">登録</router-link> |
+    <router-link to="/Original">まとめ</router-link>
   </div>
   <router-view />
 </template>

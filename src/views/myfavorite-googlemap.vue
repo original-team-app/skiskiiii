@@ -3,20 +3,12 @@
     <title>Add Map</title>
   </head>
   <body>
-    <!--全ページこれになってしまう現象発生中-->
     <h3>My Google Maps Demo</h3>
     <h3>
       APIのアプリケーション制限がまだのため、Web上に挙げるときはつけること！！！
     </h3>
     <!--マップを表示するところ-->
     <div id="map" ref="map" />
-    <div>
-      <button v-on:click="pinSave">未 ピンの保存</button>
-      <button v-on:click="memoField">未 吹き出しの表示</button>
-    </div>
-    <div>
-      <button v-on:click="deleteButton">新しいのピンを削除</button>
-    </div>
   </body>
 </template>
 
@@ -36,10 +28,16 @@ export default {
 
       let Lat = latLng.lat()
       let Lng = latLng.lng()
-      this.latLngs.push({ lat: Lat, lng: Lng })
+      let newLatlng = { lat: Lat, lng: Lng }
+      this.latLngs.push(newLatlng)
 
-      newMarker.addListener("click", (p) => {
-        this.info(p.latLng, newMarker, map)
+      newMarker.setMap(map)
+      newMarker.addListener("click", () => {
+        //this.deleteButton(p.latLng, marker)
+        newMarker.setMap(null)
+        if (this.latLngs.includes(newLatlng)) {
+          this.latLngs.splice(newLatlng, 1)
+        }
       })
     },
 
@@ -64,10 +62,11 @@ export default {
         shouldFocus: false,
       })
     },*/
-  },
+    //},
 
-  deleteButton: function () {
-    const map = new window.google.maps.Map(this.$refs.map, {
+    //deleteButton: function (latLng, marker) {
+    // marker.setMap(null)
+    /*const map = new window.google.maps.Map(this.$refs.map, {
       center: this.latLngs[0],
       zoom: 11,
       mapType: "default",
@@ -82,15 +81,13 @@ export default {
           map: map,
         })
       }
-    }
+    }*/
   },
   mounted: function () {
     if (!window.mapCompleted) {
       window.mapCompleted = true
       const script = document.createElement("script")
-      script.src =
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBveIZLjpsuQKkrPXnEmipIxZ8iZJpUiVo&callback=initMap&v=weekly"
-      script.async = true
+      script.src = script.async = true
       document.head.appendChild(script)
     }
 
@@ -113,13 +110,19 @@ export default {
         //最初の配列をすべて表示するためのfor文
         //firebaseとの連結に
         for (let i = 0; i < this.latLngs.length; i++) {
-          /*const marker = */ new window.google.maps.Marker({
+          const marker = new window.google.maps.Marker({
             position: this.latLngs[i],
             map: map,
           })
-          /*marker.addListener("click", (p) => {
-            this.info(p.latLng, marker, map)
-          })*/
+          marker.setMap(map)
+          marker.addListener("click", () => {
+            //this.deleteButton(p.latLng, marker)
+            marker.setMap(null)
+            const firstlatLng = this.latLngs[i]
+            if (this.latLngs.includes(firstlatLng)) {
+              this.latLngs.splice(firstlatLng, 1)
+            }
+          })
         }
       }
     }, 500)

@@ -4,6 +4,7 @@ import Favorite from "../views/Favorite.vue"
 import MyPage from "../views/MyPage.vue"
 import Login from "../views/Login.vue"
 import Register from "../views/Register.vue"
+import Original from "../views/Original.vue"
 
 const routes = [
   {
@@ -41,6 +42,8 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ "../views/Api.vue"),
+  },
+  {
     path: "/favorite",
     name: "Favorite",
     component: Favorite,
@@ -59,6 +62,11 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/original",
+    name: "Original",
+    component: Original,
   },
 ]
 
