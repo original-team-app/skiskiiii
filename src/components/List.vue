@@ -1,8 +1,20 @@
 <template>
-  <div>
-    <p v-for="lodgeList in lodgeLists" :key="lodgeList.id">
-      {{ lodgeList.name }}
-    </p>
+  <div class="lodge_list">
+    <div>
+      <div class="lodge_name">{{ list.name }}</div>
+      <div class="lodge_kana">{{ list.kana }}</div>
+      <div class="lodge_address">{{ list.address }}</div>
+      <div class="lodge_phone">TEL : {{ list.phone }}</div>
+      <div class="lodge_url">詳細 : {{ list.url }}</div>
+    </div>
+    <button class="favorite-icon" @click="saveFavorite(index)">
+      {{ list.buttonText }}
+    </button>
+    <!-- <img
+      class="lodge_photo"
+      src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/59942243.jpg?k=ac10fdc774aec53081adddf06da704beb8c95a3a1702212014dd872f2e0ab9c2&o="
+    />
+    <p class="lodge_name">{{ list.name }}</p>
     <img
       src="../assets/icons8-スター.png"
       alt="お気に入り"
@@ -16,7 +28,7 @@
       class="favorite-icon"
       @click="deleteFavorite"
       v-else
-    />
+    /> -->
   </div>
 </template>
 
@@ -28,15 +40,14 @@ export default {
   data() {
     return {
       isFavorited: true,
-      lodgeLists: [
-        { id: "01", name: "星野リゾート", url: "https://hoshino" },
-        // { id: "02", name: "アパホテル", url: "https://apa" },
-      ],
     }
   },
   props: {
     list: {
       type: Object,
+    },
+    index: {
+      type: Number,
     },
   },
   methods: {
@@ -75,3 +86,56 @@ export default {
   },
 }
 </script>
+
+<style>
+.lodge_list {
+  display: flex;
+  margin: 5px 50px;
+  border-width: 1px;
+  border-color: rgb(150, 150, 150);
+  border-style: solid;
+}
+.lodge_contents {
+  display: flex;
+}
+.lodge_photo {
+  width: 192px;
+  height: 135px;
+  margin: 10px 20px 10px 10px;
+}
+.lodge_name {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.lodge_kana {
+  text-align: left;
+  font-size: 10px;
+  margin-left: 10px;
+}
+.lodge_address {
+  text-align: left;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.lodge_phone {
+  text-align: left;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.lodge_url {
+  text-align: left;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.favorite-icon {
+  height: 30px;
+  width: auto;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: 15px;
+}
+</style>
