@@ -69,6 +69,9 @@ export default {
       }
     })
   },
+  mounted() {
+    console.log(this.favLists)
+  },
 }
 </script>
 

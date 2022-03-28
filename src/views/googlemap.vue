@@ -110,7 +110,9 @@ export default {
     if (!window.mapCompleted) {
       window.mapCompleted = true
       const script = document.createElement("script")
-      script.src = script.async = true
+      script.src =
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyDR5Mi43KxFdlV2UUmfXj0RKicQVUzDEjM&callback=initMap&v=weekly"
+      script.async = true
       document.head.appendChild(script)
     }
 
