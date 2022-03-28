@@ -114,10 +114,7 @@
 
 <script>
 // ログイン機能から引用
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth"
+import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/firebase"
 export default {
   data() {
@@ -128,25 +125,12 @@ export default {
     }
   },
   methods: {
-    //emailとpasswordを引数にFirebaseのAuthenticationにユーザを登録
-    registerUser() {
-      createUserWithEmailAndPassword(auth, this.email, this.password)
-        //成功した場合はsendEmail()が呼び出される
-        .then(() => {
-          this.sendEmail(this.email)
-        })
+    login() {
+      signInWithEmailAndPassword(auth, this.email, this.password)
+        //ログイン成功した場合はFavorite画面へ
+        .then(() => this.$router.push("/googlemap"))
         //失敗した場合はエラーメッセージを画面に出力
         .catch((e) => (this.error = e.message))
-    },
-    //認証リンクメールを送信する
-    sendEmail() {
-      const actionCodeSettings = {
-        url: "http://" + location.host + "/Favorite",
-      }
-      auth.languageCode = "ja"
-      sendEmailVerification(auth.currentUser, actionCodeSettings)
-        .then(() => alert("認証メールを送りました!"))
-        .catch((e) => console.log(e))
     },
   },
 }
@@ -162,7 +146,7 @@ body {
 header {
   height: 90.88px;
   width: 100%;
-  background-color: rgba(226, 160, 38, 0.349);
+  background-color: rgb(226, 160, 38);
   position: fixed;
   top: 0;
   left: 0;
@@ -220,7 +204,7 @@ footer {
 .footer-wrapper {
   height: 66px;
   position: relative;
-  background-color: rgba(226, 160, 38, 0.349);
+  background-color: rgb(226, 160, 38);
 }
 .footer-left {
   text-align: center;
