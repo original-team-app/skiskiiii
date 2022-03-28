@@ -4,6 +4,7 @@ import Favorite from "../views/Favorite.vue"
 import MyPage from "../views/MyPage.vue"
 import Login from "../views/Login.vue"
 import Register from "../views/Register.vue"
+import Original from "../views/Original.vue"
 
 const routes = [
   {
@@ -19,6 +20,20 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/googlemap",
+    name: "Map",
+    component: () =>
+      import(/* webpackChunkName: "map" */ "../views/googlemap.vue"),
+  },
+  {
+    path: "/myfavorite-googlemap",
+    name: "Personal",
+    component: () =>
+      import(
+        /* webpackChunkName: "Personal" */ "../views/myfavorite-googlemap.vue"
+      ),
   },
   {
     path: "/api",
@@ -47,6 +62,11 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/original",
+    name: "Original",
+    component: Original,
   },
 ]
 
