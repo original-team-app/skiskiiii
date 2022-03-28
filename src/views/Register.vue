@@ -54,7 +54,7 @@ export default {
     //認証リンクメールを送信する
     sendEmail() {
       const actionCodeSettings = {
-        url: "http://" + location.host + "/Favorite",
+        url: "http://" + location.host + "/Original",
       }
       auth.languageCode = "ja"
       sendEmailVerification(auth.currentUser, actionCodeSettings)
